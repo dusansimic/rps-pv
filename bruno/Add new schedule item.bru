@@ -1,0 +1,22 @@
+meta {
+  name: Add new schedule item
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/api/scheduleItem
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "subject": "SPA2",
+    "day": "2",
+    "time": "13",
+    "comment": "/",
+    "mandatory": true,
+    "type": "practical"
+  }
+}

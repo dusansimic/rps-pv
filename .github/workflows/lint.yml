@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sonarlint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - name: downlaod sonarlint
+        run: |
+          curl -sL https://github.com/SonarSource/sonarlint-cli/releases/latest/download/sonarlint-cli.zip -o sonarlint.zip
+          unzip sonarlint.zip -d sonarlint
+          chmod +x sonarlint/bin/sonarlint
+      - name: run sonarlint
+        run: |
+          ./sonarlint/bin/sonarlint --src ./src --exclude "src/test/**" --format sarif > sonarlint-results.sarif
+      - uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'sonarlint-results.sarif'
+          category: sonarlint

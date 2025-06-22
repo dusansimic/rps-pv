@@ -1,0 +1,20 @@
+meta {
+  name: Add new student
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/student
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "index": "198m/23",
+    "email": "dmi.198m.23@student.pmf.uns.ac.rs",
+    "name": "Dusan",
+    "surname": "Simic"
+  }
+}
