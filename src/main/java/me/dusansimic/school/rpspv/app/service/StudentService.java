@@ -2,7 +2,6 @@ package me.dusansimic.school.rpspv.app.service;
 
 import me.dusansimic.school.rpspv.app.entity.Student;
 import me.dusansimic.school.rpspv.app.repository.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
