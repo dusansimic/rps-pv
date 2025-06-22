@@ -27,7 +27,7 @@
         <module name="NeedBraces"/>
         <!-- Require Javadoc for public classes and methods -->
         <module name="JavadocMethod">
-            <property name="scope" value="public"/>
+            <property name="accessModifiers" value="public"/>
         </module>
         <!-- Optional: disallow magic numbers -->
         <module name="MagicNumber">
