@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <!-- Enforce UTF-8 encoding -->
+    <property name="charset" value="UTF-8"/>
+
+    <!-- Check that files end with a newline -->
+    <module name="NewlineAtEndOfFile"/>
+
+    <!-- Disallow unused imports -->
+    <module name="UnusedImports"/>
+
+    <!-- Basic file length check -->
+    <module name="FileLength">
+        <property name="max" value="2000"/>
+    </module>
+
+    <!-- Enforce Google-style naming conventions -->
+    <module name="TreeWalker">
+        <!-- Class names should be in PascalCase -->
+        <module name="TypeName"/>
+        <!-- Methods should be in camelCase -->
+        <module name="MethodName"/>
+        <!-- Enforce braces for if/while/for -->
+        <module name="NeedBraces"/>
+        <!-- Require Javadoc for public classes and methods -->
+        <module name="JavadocMethod">
+            <property name="scope" value="public"/>
+        </module>
+        <!-- Optional: disallow magic numbers -->
+        <module name="MagicNumber">
+            <property name="ignoreNumbers" value="-1,0,1"/>
+            <property name="ignoreHashCodeMethod" value="true"/>
+        </module>
+    </module>
+</module>
