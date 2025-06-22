@@ -22,10 +22,10 @@ jobs:
         run: |
           java -jar checkstyle.jar \
             -c checkstyle.xml \
-            -f sarif \
-            -o checkstyle-report.sarif \
+#            -f sarif \
+#            -o checkstyle-report.sarif \
             src/main/java
-      - uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: 'checkstyle-report.sarif'
-          category: checkstyle
+#      - uses: github/codeql-action/upload-sarif@v3
+#        with:
+#          sarif_file: 'checkstyle-report.sarif'
+#          category: checkstyle
