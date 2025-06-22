@@ -20,12 +20,14 @@ jobs:
           curl -sL https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${{ env.CHECKSTYLE_VERSION }}/checkstyle-${{ env.CHECKSTYLE_VERSION }}-all.jar -o checkstyle.jar
       - name: run checkstyle
         run: |
+          set +e
           java -jar checkstyle.jar \
             -c checkstyle.xml \
             -f sarif \
             -o checkstyle-report.sarif \
             src/main/java
           EXIT_CODE=$?
+          set -e
           if [ $EXIT_CODE -eq 1 ]; then
             echo "Checkstyle configuration error detected (exit code 1). Failing build."
             exit 1
