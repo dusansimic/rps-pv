@@ -25,6 +25,17 @@ jobs:
             -f sarif \
             -o checkstyle-report.sarif \
             src/main/java
+          EXIT_CODE=$?
+          if [ $EXIT_CODE -eq 1 ]; then
+            echo "Checkstyle configuration error detected (exit code 1). Failing build."
+            exit 1
+          elif [ $EXIT_CODE -eq 2 ]; then
+            echo "Checkstyle violations found (exit code 2). Continuing without failing."
+            exit 0
+          else
+            echo "Checkstyle ran successfully with exit code $EXIT_CODE."
+            exit $EXIT_CODE
+          fi
       - uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'checkstyle-report.sarif'
