@@ -10,9 +10,6 @@
     <!-- Check that files end with a newline -->
     <module name="NewlineAtEndOfFile"/>
 
-    <!-- Disallow unused imports -->
-    <module name="UnusedImports"/>
-
     <!-- Basic file length check -->
     <module name="FileLength">
         <property name="max" value="2000"/>
@@ -20,6 +17,8 @@
 
     <!-- Enforce Google-style naming conventions -->
     <module name="TreeWalker">
+        <!-- Disallow unused imports -->
+        <module name="UnusedImports"/>
         <!-- Class names should be in PascalCase -->
         <module name="TypeName"/>
         <!-- Methods should be in camelCase -->
