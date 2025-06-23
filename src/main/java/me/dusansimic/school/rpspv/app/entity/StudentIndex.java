@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 @Embeddable
 @NoArgsConstructor(force = true)
 public class StudentIndex {
+    private final Integer MIN_INDEX_ID = 1;
+    private final Integer MIN_INDEX_YEAR = 2000;
+
     @AllArgsConstructor
     public static enum StudyLevel {
         BACHELOR(""),
@@ -26,10 +29,10 @@ public class StudentIndex {
         }
     }
 
-    @Min(1)
+    @Min(MIN_INDEX_ID)
     private final Integer id;
     private final StudyLevel level;
-    @Min(2000)
+    @Min(MIN_INDEX_YEAR)
     private final Integer year;
 
     public StudentIndex(String index) {

@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalTime;
-import java.time.OffsetTime;
 import java.util.HashSet;
 import java.util.Set;
 
