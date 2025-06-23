@@ -1,8 +1,11 @@
 package me.dusansimic.school.rpspv.app.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalTime;
+import java.time.OffsetTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,12 +20,20 @@ public class ScheduleItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String subject;
-    private int day;
-    private int time;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private DayOfWeek day;
+    @NotNull
+    private LocalTime time;
+    @NotNull
     private String comment;
+    @NotNull
     private boolean mandatory;
-    private String type;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private ItemType type;
 
     @ManyToMany(mappedBy = "scheduleItems")
     private Set<Student> students = new HashSet<>();

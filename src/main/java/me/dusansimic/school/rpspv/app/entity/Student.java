@@ -1,6 +1,7 @@
 package me.dusansimic.school.rpspv.app.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.HashSet;
@@ -17,9 +18,15 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String index;
+    @NotNull
+    @Convert(converter = StudentIndexConverter.class)
+    @Column(nullable = false, unique = true)
+    private StudentIndex index;
+    @NotNull
     private String email;
+    @NotNull
     private String name;
+    @NotNull
     private String surname;
 
     @ManyToMany
