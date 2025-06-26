@@ -29,10 +29,10 @@ public class StudentIndex {
         }
     }
 
-    @Min(MIN_INDEX_ID)
+    @Min(1)
     private final Integer id;
     private final StudyLevel level;
-    @Min(MIN_INDEX_YEAR)
+    @Min(2000)
     private final Integer year;
 
     public StudentIndex(String index) {

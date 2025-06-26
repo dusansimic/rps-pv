@@ -1,5 +1,6 @@
 package me.dusansimic.school.rpspv.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -35,5 +36,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "schedule_item_id")
     )
-    private Set<ScheduleItem> scheduleItems = new HashSet<>();
+    @JsonIgnore
+    @EqualsAndHashCode.Exclude
+    private Set<ScheduleItem> scheduleItems;
 }

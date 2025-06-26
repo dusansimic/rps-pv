@@ -1,5 +1,6 @@
 package me.dusansimic.school.rpspv.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -35,5 +36,7 @@ public class ScheduleItem {
     private ItemType type;
 
     @ManyToMany(mappedBy = "scheduleItems")
-    private Set<Student> students = new HashSet<>();
+    @JsonIgnore
+    @EqualsAndHashCode.Exclude
+    private Set<Student> students;
 }
